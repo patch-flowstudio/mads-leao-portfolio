@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fcfbf6" />
+    <meta
+      name="description"
+      content="Volkswagen One.Shop — a UI design case study by Madalena Leão. Connecting the checkout journey, design system and implementation."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://madsleao.com/one-shop/" />
+    <title>Volkswagen / One.Shop — Madalena Leão</title>
+    <link rel="icon" href="../assets/favicon.svg" />
+    <link
+      rel="preload"
+      href="../assets/clash-display-medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../assets/inter-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../styles.css?v=client-feedback-1" />
+    <link rel="stylesheet" href="../case.css?v=portfolio-2" />
+    <link rel="stylesheet" href="../projects.css?v=portfolio-2" />
+    <script src="../case.js?v=portfolio-2" defer></script>
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="wordmark" href="../#top" aria-label="Madalena Leão, home"
+        >mads leão<span aria-hidden="true">✦</span></a
+      >
+      <button
+        class="menu-toggle"
+        aria-label="Open navigation"
+        aria-controls="navigation"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        hidden
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section
+        class="case-hero case-wrap"
+        id="top"
+        aria-labelledby="case-title"
+      >
+        <a class="back-link" href="../projects/"
+          ><svg
+            class="icon-arrow"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M20 12H4m7-7-7 7 7 7" /></svg
+          >Back to selected work</a
+        >
+        <div class="case-eyebrow">
+          <span>03 / MOBILITY · E-COMMERCE · UI DESIGNER</span><span>2023</span>
+        </div>
+        <h1 class="case-title" id="case-title">
+          <span class="title-lines"
+            ><span class="line-mask"
+              ><span class="hero-line">ONE.SHOP</span></span
+            ></span
+          ><span class="case-star" aria-hidden="true">✦</span>
+        </h1>
+        <div class="case-hero-copy">
+          <h2>Buying a car.<br /><span>Connecting the details.</span></h2>
+          <div>
+            <p>
+              I designed the checkout UI for Volkswagen Group’s digital
+              car-buying platform, connecting UX concepts, a shared design
+              system and implementation.
+            </p>
+            <a class="text-link" href="#context"
+              >Explore the thinking<svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M12 4v16M5 13l7 7 7-7" /></svg
+            ></a>
+          </div>
+        </div>
+        <figure class="case-visual photo-cover">
+          <div class="case-visual-inner">
+            <img
+              src="./assets/volkswagen-cover.webp"
+              width="1024"
+              height="683"
+              alt="Volkswagen vehicle on a road at sunset, the original project cover"
+              fetchpriority="high"
+            />
+          </div>
+          <button
+            class="image-open"
+            data-image="./assets/volkswagen-cover.webp"
+            data-title="Volkswagen Group / One.Shop"
+            aria-label="Enlarge Volkswagen Group / One.Shop"
+            hidden
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 4H4v5m11-5h5v5M4 15v5h5m6 0h5v-5" />
+            </svg>
+          </button>
+          <figcaption>
+            <span>VOLKSWAGEN GROUP / ONE.SHOP</span
+            ><span>MOBILITY · E-COMMERCE · UI DESIGNER</span>
+          </figcaption>
+        </figure>
+        <dl class="case-facts">
+          <div>
+            <dt>MY ROLE</dt>
+            <dd>UI Designer</dd>
+          </div>
+          <div>
+            <dt>TIMELINE</dt>
+            <dd>11 months</dd>
+          </div>
+          <div>
+            <dt>TOOLS</dt>
+            <dd>Figma · Frontify</dd>
+          </div>
+          <div>
+            <dt>SECTOR</dt>
+            <dd>Mobility · E-commerce</dd>
+          </div>
+          <div>
+            <dt>THE TEAM</dt>
+            <dd>4 UX/UI D · 2 FE · 3 BE<br />1 PM · 1 QA</dd>
+          </div>
+        </dl>
+      </section>
+      <nav class="chapter-nav" aria-label="Case study chapters">
+        <span class="chapter-nav-label">THE THINKING BEHIND THE WORK</span>
+        <div>
+          <a href="#context"><span>01</span> Context</a
+          ><a href="#research"><span>02</span> Role</a
+          ><a href="#design"><span>03</span> Process</a
+          ><a href="#outcome"><span>04</span> Reflection</a>
+        </div>
+        <span class="reading-progress" aria-hidden="true"></span>
+      </nav>
+      <section
+        class="case-chapter case-wrap"
+        id="context"
+        aria-labelledby="context-title"
+      >
+        <div class="chapter-heading" data-reveal>
+          <span class="chapter-number">01</span>
+          <p>CONTEXT + AMBITION</p>
+          <h2 id="context-title">
+            One checkout.<br /><span>Many moving parts.</span>
+          </h2>
+        </div>
+        <div class="chapter-body">
+          <div class="prose" data-reveal>
+            <p class="lead">
+              A large-scale e-commerce platform that would let customers buy a
+              car entirely online.
+            </p>
+            <p>
+              The Volkswagen Group project used a white-label approach, designed
+              to adapt to four brands in the future. The checkout needed to sit
+              coherently within a platform built by multiple teams.
+            </p>
+            <p>
+              My responsibility was the UI for the entire checkout, working
+              alongside three UX designers and balancing their concepts with
+              business and stakeholder requirements.
+            </p>
+          </div>
+          <p class="question" data-reveal>
+            A coherent journey.<br /><span>Across teams and brands.</span>
+          </p>
+        </div>
+      </section>
+      <section
+        class="research-chapter"
+        id="research"
+        aria-labelledby="research-title"
+      >
+        <div class="case-wrap">
+          <div class="research-top">
+            <div class="chapter-heading" data-reveal>
+              <span class="chapter-number">02</span>
+              <p>MY ROLE + COLLABORATION</p>
+              <h2 id="research-title">
+                The work between<br /><span>the screens.</span>
+              </h2>
+            </div>
+            <div class="research-intro" data-reveal>
+              <p>
+                I worked in a SAFe environment, taking part in the ceremonies
+                and planning design tasks for each Program Increment.
+              </p>
+              <p>
+                The role reached beyond screen design: aligning with UX,
+                coordinating components with the Design System Team, and
+                supporting frontend developers and QA through implementation.
+              </p>
+            </div>
+          </div>
+          <div class="collaboration-path">
+            <div data-reveal>
+              <span>01</span>
+              <h3>Align with UX.</h3>
+              <p>
+                Translate the checkout concepts into UI screens while
+                integrating user, business and stakeholder requirements.
+              </p>
+            </div>
+            <div data-reveal>
+              <span>02</span>
+              <h3>Work with the system.</h3>
+              <p>
+                Align with the Design System Team and request the components
+                needed to keep the platform consistent.
+              </p>
+            </div>
+            <div data-reveal>
+              <span>03</span>
+              <h3>Stay close to delivery.</h3>
+              <p>
+                Support frontend developers and QA so the intended experience
+                carries through to implementation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="design-chapter case-wrap"
+        id="design"
+        aria-labelledby="design-title"
+      >
+        <div class="design-heading">
+          <div class="chapter-heading" data-reveal>
+            <span class="chapter-number">03</span>
+            <p>PROCESS + TEAMWORK</p>
+            <h2 id="design-title">
+              Shared thinking.<br /><span>Closer collaboration.</span>
+            </h2>
+          </div>
+          <div class="prose" data-reveal>
+            <p class="lead">
+              Workshops made room to discuss ideas, refine the approach and
+              align the team.
+            </p>
+            <p>
+              With most of the team based in Germany, in-person sessions in
+              Lisbon brought everyone together around the work.
+            </p>
+          </div>
+        </div>
+        <div class="artifact-grid workshop-grid">
+          <figure data-reveal>
+            <div class="artifact-stage">
+              <img
+                src="./assets/workshop-team.webp"
+                width="665"
+                height="1182"
+                alt="Volkswagen project team gathered around a table at the Lisbon workshop"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <button
+              class="image-open"
+              data-image="./assets/workshop-team.webp"
+              data-title="Working together in Lisbon"
+              aria-label="Enlarge Working together in Lisbon"
+              hidden
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 4H4v5m11-5h5v5M4 15v5h5m6 0h5v-5" />
+              </svg>
+            </button>
+            <figcaption>Working together in Lisbon</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="artifact-stage">
+              <img
+                src="./assets/workshop-discussion.webp"
+                width="1021"
+                height="769"
+                alt="Volkswagen project team discussing ideas at the Lisbon workshop"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <button
+              class="image-open"
+              data-image="./assets/workshop-discussion.webp"
+              data-title="A shared space for discussion"
+              aria-label="Enlarge A shared space for discussion"
+              hidden
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 4H4v5m11-5h5v5M4 15v5h5m6 0h5v-5" />
+              </svg>
+            </button>
+            <figcaption>A shared space for discussion</figcaption>
+          </figure>
+        </div>
+        <p class="editorial-statement" data-reveal>
+          The screens were one part.<br /><span
+            >Alignment made them possible.</span
+          >
+        </p>
+        <div class="research-signals">
+          <div data-reveal>
+            <span>01</span>
+            <h3>Figma</h3>
+            <p>UI design and the shared screen work.</p>
+          </div>
+          <div data-reveal>
+            <span>02</span>
+            <h3>Miro</h3>
+            <p>Presentations and discussions with clients.</p>
+          </div>
+          <div data-reveal>
+            <span>03</span>
+            <h3>Confluence</h3>
+            <p>Documentation for the wider team.</p>
+          </div>
+          <div data-reveal>
+            <span>04</span>
+            <h3>Frontify</h3>
+            <p>Working within the design-system environment.</p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="outcome-chapter case-wrap"
+        id="outcome"
+        aria-labelledby="outcome-title"
+      >
+        <div class="chapter-heading" data-reveal>
+          <span class="chapter-number">04</span>
+          <p>OUTCOME + REFLECTION</p>
+          <h2 id="outcome-title">From design<br /><span>to delivery.</span></h2>
+        </div>
+        <div class="outcome-body">
+          <p class="lead" data-reveal>
+            The project strengthened how I connect design decisions with
+            business requirements, communicate with stakeholders and work across
+            teams.
+          </p>
+          <div class="outcome-list">
+            <div data-reveal>
+              <span>01</span>
+              <h3>Design in context</h3>
+              <p>
+                Bring UX concepts, stakeholder needs and the design system
+                together.
+              </p>
+            </div>
+            <div data-reveal>
+              <span>02</span>
+              <h3>A connected handoff</h3>
+              <p>Work alongside engineering and QA during implementation.</p>
+            </div>
+            <div data-reveal>
+              <span>03</span>
+              <h3>Communication as a design skill</h3>
+              <p>
+                Use presentations, documentation and workshops to keep teams
+                aligned.
+              </p>
+            </div>
+          </div>
+          <aside class="case-note" data-reveal>
+            <p>
+              There are limits to the details and designs I can share publicly.
+              I would love to talk about the experience and what we created.
+            </p>
+            <a
+              class="text-link"
+              href="mailto:madsleao11@gmail.com?subject=Let%27s%20talk%20about%20One.Shop"
+              >Let’s talk about One.Shop<svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></a>
+          </aside>
+        </div>
+      </section>
+      <section class="related-work case-wrap" aria-labelledby="related-title">
+        <div class="related-heading">
+          <h2 id="related-title">Keep exploring.</h2>
+          <a href="../projects/">All selected work</a>
+        </div>
+        <div class="related-grid">
+          <a
+            class="related-card"
+            href="../wpp-open/"
+            aria-label="WPP Open — explore the case study"
+            ><div class="related-image">
+              <img
+                src="../assets/wpp-open.webp"
+                width="1440"
+                height="907"
+                loading="lazy"
+                decoding="async"
+                alt="WPP Open project preview"
+              />
+            </div>
+            <div class="related-card-copy">
+              <div>
+                <h3>WPP Open</h3>
+                <p>Enterprise AI · Product design</p>
+              </div>
+              <svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 19 19 5M5 5h14v14" />
+              </svg></div></a
+          ><a
+            class="related-card"
+            href="../ethereal-nexus/"
+            aria-label="Ethereal Nexus — explore the case study"
+            ><div class="related-image">
+              <img
+                src="../assets/ethereal-nexus.webp"
+                width="1440"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt="Ethereal Nexus project preview"
+              />
+            </div>
+            <div class="related-card-copy">
+              <div>
+                <h3>Ethereal Nexus</h3>
+                <p>Developer tools · Product design</p>
+              </div>
+              <svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 19 19 5M5 5h14v14" />
+              </svg></div></a
+          ><a
+            class="related-card"
+            href="../europcar/"
+            aria-label="Volkswagen ft. Europcar — explore the case study"
+            ><div class="related-image">
+              <img
+                src="../assets/europcar.webp"
+                width="1440"
+                height="1197"
+                loading="lazy"
+                decoding="async"
+                alt="Volkswagen ft. Europcar project preview"
+              />
+            </div>
+            <div class="related-card-copy">
+              <div>
+                <h3>Volkswagen ft. Europcar</h3>
+                <p>Mobility · UX design</p>
+              </div>
+              <svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 19 19 5M5 5h14v14" />
+              </svg></div
+          ></a>
+        </div>
+      </section>
+      <section class="case-end case-wrap" aria-labelledby="end-title">
+        <p class="small-label">ONE CASE STUDY. PART OF A BIGGER PICTURE.</p>
+        <a class="return-work" href="../projects/"
+          ><h2 id="end-title">BACK TO<br />SELECTED WORK.</h2>
+          <svg
+            class="icon-arrow"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M5 19 19 5M5 5h14v14" /></svg
+        ></a>
+        <div class="case-end-bottom">
+          <a href="mailto:madsleao11@gmail.com"
+            >Have something in mind? Let's talk
+            <svg
+              class="icon-arrow"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg></a
+          ><button class="motion-toggle" aria-pressed="false">
+            <span aria-hidden="true">Ⅱ</span
+            ><span class="motion-label">Pause motion</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <dialog id="navigation" aria-labelledby="menu-title">
+      <div class="menu-backdrop"></div>
+      <button class="menu-close" aria-label="Close navigation" autofocus>
+        ×
+      </button>
+      <div class="menu-panel">
+        <div class="menu-content">
+          <p class="menu-kicker" id="menu-title">NAVIGATION</p>
+          <nav aria-label="Expanded navigation">
+            <a href="../#top">Home<span>01</span></a
+            ><a href="../projects/">Work<span>02</span></a
+            ><a href="../#about">About<span>03</span></a
+            ><a href="../#contact">Contact<span>04</span></a>
+          </nav>
+          <div class="menu-bottom">
+            <span>LESS CHAOS · MORE CLARITY</span
+            ><a href="mailto:madsleao11@gmail.com"
+              >Say hello<svg
+                class="icon-arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog
+      class="image-view"
+      id="image-view"
+      aria-labelledby="image-view-title"
+    >
+      <div class="image-view-toolbar">
+        <h2 id="image-view-title">Interface detail</h2>
+        <button class="image-size" aria-pressed="false">Actual size</button>
+      </div>
+      <button
+        class="menu-close image-view-close"
+        aria-label="Close image"
+        autofocus
+      >
+        ×
+      </button>
+      <div class="image-view-scroll"><img alt="" /></div>
+    </dialog>
+  </body>
+</html>
