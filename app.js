@@ -422,6 +422,10 @@
     const destination = menuDestination;
     menuDestination = null;
     if (destination) {
+      if (!destination.startsWith("#")) {
+        location.assign(destination);
+        return;
+      }
       const target = document.querySelector(destination);
       target
         ?.querySelectorAll("[data-reveal]")
@@ -491,8 +495,10 @@
   });
   dialog.querySelectorAll("nav a").forEach((link) => {
     link.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
+        return;
       event.preventDefault();
-      closeMenu(link.hash);
+      closeMenu(link.getAttribute("href"));
     });
   });
   menuButton.hidden = false;
