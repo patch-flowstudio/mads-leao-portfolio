@@ -4,6 +4,13 @@
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const fine = matchMedia("(hover: hover) and (pointer: fine)");
   const hero = document.querySelector(".hero");
+  const headline = document.querySelector("#hero-title");
+  // Keep the original shaped text intact; a hidden visual copy supplies the light.
+  const headlineInk = document.createElement("span");
+  headlineInk.className = "hero-ink";
+  headlineInk.setAttribute("aria-hidden", "true");
+  headlineInk.innerHTML = headline.innerHTML;
+  headline.append(headlineInk);
   const band = document.querySelector(".name-band");
   const track = document.querySelector(".name-track");
   const stars = [...document.querySelectorAll(".hero-star")];
@@ -58,11 +65,14 @@
   let menuDestination = null;
   let menuOpener = null;
   const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+  const ink = { x: 0, y: 0, tx: 0, ty: 0, strength: 0, active: false };
   const follower = { x: 0, y: 0, cx: 0, cy: 0, tx: 0, ty: 0 };
   const layout = {
     width: innerWidth,
     height: innerHeight,
     heroHeight: 800,
+    headlineLeft: 0,
+    headlineTop: 0,
     footerTop: 0,
     posterTop: 0,
     nameWidth: 1,
@@ -85,6 +95,9 @@
     layout.height = innerHeight;
     layout.heroHeight = hero.offsetHeight;
     const pageScroll = dialog.open ? menuScrollY : window.scrollY;
+    const headlineBounds = headline.getBoundingClientRect();
+    layout.headlineLeft = headlineBounds.left;
+    layout.headlineTop = headlineBounds.top + pageScroll;
     layout.footerTop = footer.getBoundingClientRect().top + pageScroll;
     layout.posterTop =
       poster.closest(".poster").getBoundingClientRect().top + pageScroll;
@@ -107,6 +120,20 @@
     previousTime = time;
     elapsed += dt;
     let moving = false;
+    if (ink.active || ink.strength > 0.001) {
+      const target =
+        motion && fine.matches && heroVisible && !dialog.open && ink.active
+          ? 1
+          : 0;
+      ink.x = damp(ink.x, ink.tx, 14, dt);
+      ink.y = damp(ink.y, ink.ty, 14, dt);
+      ink.strength = damp(ink.strength, target, target ? 9 : 5, dt);
+      if (ink.strength < 0.001) ink.strength = 0;
+      headlineInk.style.setProperty("--ink-x", `${ink.x.toFixed(1)}px`);
+      headlineInk.style.setProperty("--ink-y", `${ink.y.toFixed(1)}px`);
+      headlineInk.style.opacity = ink.strength.toFixed(4);
+      moving = ink.strength > 0 || target > 0;
+    }
     if (motion && !dialog.open) {
       pointer.x = damp(pointer.x, pointer.tx, 4, dt);
       pointer.y = damp(pointer.y, pointer.ty, 4, dt);
@@ -213,6 +240,9 @@
         : "Pause motion";
     toggle.disabled = reduced.matches;
     if (!motion) {
+      ink.active = false;
+      ink.strength = 0;
+      headlineInk.style.opacity = "0";
       hidePreview();
       [track, poster, ...stars, ...ambients].forEach((el) => {
         el.style.transform = "";
@@ -281,6 +311,25 @@
   );
   hero.addEventListener("pointerleave", () => {
     pointer.tx = pointer.ty = 0;
+  });
+  headline.addEventListener(
+    "pointermove",
+    (event) => {
+      if (!motion || !fine.matches || event.pointerType === "touch") return;
+      ink.tx = event.clientX - layout.headlineLeft;
+      ink.ty = event.clientY + scroll - layout.headlineTop;
+      if (!ink.active && ink.strength < 0.01) {
+        ink.x = ink.tx;
+        ink.y = ink.ty;
+      }
+      ink.active = true;
+      wake();
+    },
+    { passive: true },
+  );
+  headline.addEventListener("pointerleave", () => {
+    ink.active = false;
+    wake();
   });
   magnets.forEach((m) => {
     m.el.addEventListener("pointerenter", () => {
@@ -351,7 +400,11 @@
     project.addEventListener("pointerleave", hidePreview);
   });
   fine.addEventListener("change", () => {
-    if (!fine.matches) hidePreview();
+    if (!fine.matches) {
+      hidePreview();
+      ink.active = false;
+      wake();
+    }
   });
   window.addEventListener(
     "scroll",
@@ -368,6 +421,9 @@
   );
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
+      ink.active = false;
+      ink.strength = 0;
+      headlineInk.style.opacity = "0";
       cancelAnimationFrame(raf);
       raf = 0;
       previousTime = 0;
