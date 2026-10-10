@@ -29,9 +29,10 @@
   box-sizing: border-box;
 }
 html {
+  --anchor-offset: 100px;
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: var(--anchor-offset);
 }
 body {
   margin: 0;
@@ -774,6 +775,10 @@ h3 {
 }
 .contact {
   position: relative;
+  /* Contact fills the viewport without the offset used by the other anchors. */
+  scroll-margin-top: calc(-1 * var(--anchor-offset));
+  min-height: 100vh;
+  min-height: 100svh;
   background: var(--blue);
   color: var(--cream);
   overflow: hidden;
@@ -1162,7 +1167,7 @@ dialog :focus-visible {
 }
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 80px;
+    --anchor-offset: 80px;
   }
   .header {
     padding: 26px 6vw;
