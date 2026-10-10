@@ -123,11 +123,12 @@
     if (ink.active || ink.strength > 0.001) {
       const target =
         motion && fine.matches && heroVisible && !dialog.open && ink.active
-          ? 1
+          ? 0.85
           : 0;
-      ink.x = damp(ink.x, ink.tx, 14, dt);
-      ink.y = damp(ink.y, ink.ty, 14, dt);
-      ink.strength = damp(ink.strength, target, target ? 9 : 5, dt);
+      // Trail the pointer gently, without a spring overshoot or a bright flash.
+      ink.x = damp(ink.x, ink.tx, 6, dt);
+      ink.y = damp(ink.y, ink.ty, 6, dt);
+      ink.strength = damp(ink.strength, target, target ? 6 : 4, dt);
       if (ink.strength < 0.001) ink.strength = 0;
       headlineInk.style.setProperty("--ink-x", `${ink.x.toFixed(1)}px`);
       headlineInk.style.setProperty("--ink-y", `${ink.y.toFixed(1)}px`);
