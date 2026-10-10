@@ -123,7 +123,7 @@
     if (ink.active || ink.strength > 0.001) {
       const target =
         motion && fine.matches && heroVisible && !dialog.open && ink.active
-          ? 0.85
+          ? 0.5
           : 0;
       // Trail the pointer gently, without a spring overshoot or a bright flash.
       ink.x = damp(ink.x, ink.tx, 4, dt);
