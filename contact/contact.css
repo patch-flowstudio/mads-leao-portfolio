@@ -1,0 +1,70 @@
+.contact-page .case-title {
+  font-size: clamp(48px, 9.5vw, 152px);
+  margin-block: 24px 30px;
+}
+.contact-intro { font-size: clamp(16px, 1.7vw, 23px); }
+.contact-page .reading-progress { display: none; }
+.contact-options { padding-block: 42px 60px; }
+.contact-card {
+  max-width: 850px;
+  padding: clamp(24px, 4.2vw, 60px);
+  border-radius: 24px;
+  background: var(--light);
+  color: var(--blue);
+}
+.contact-card .small-label { display: block; }
+#contact-email {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0;
+  margin-bottom: 16px;
+  border: 0;
+  border-bottom: 1px solid #293efd33;
+  border-radius: 0;
+  background: transparent;
+  color: var(--blue);
+  font: 500 clamp(23px, 4vw, 48px)/1.2 Clash, Arial, sans-serif;
+  letter-spacing: -0.03em;
+}
+.contact-card > p { font-size: 14px; }
+.email-options { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.email-option {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 54px;
+  padding: 15px 24px;
+  border: 1px solid #293efd55;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--blue);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-copy { background: var(--blue); color: var(--cream); border-color: var(--blue); }
+.email-option svg, .contact-app svg, .contact-page-footer svg {
+  width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+}
+@media (hover: hover) {
+  .contact-copy:hover { background: #192bc9; }
+  .contact-gmail:hover { background: var(--cream); }
+}
+.email-option:focus-visible, #contact-email:focus-visible, .contact-app:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 5px;
+}
+.contact-card .contact-status { min-height: 1.6em; margin-top: 12px; }
+.contact-app { display: inline-flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 13px; }
+.contact-app:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact-page-footer { display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px; font-size: 12px; }
+.contact-page-footer > a { display: inline-flex; align-items: center; gap: 12px; color: var(--blue); }
+@media (max-width: 600px) {
+  .contact-page .case-title { gap: 12px; }
+  .contact-page .case-star { font-size: 0.4em; }
+  .email-options { flex-direction: column; }
+  .email-option { width: 100%; }
+  .contact-card { padding: 24px 20px; }
+  .contact-options { padding-block: 30px 40px; }
+}
