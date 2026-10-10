@@ -126,8 +126,8 @@
           ? 0.85
           : 0;
       // Trail the pointer gently, without a spring overshoot or a bright flash.
-      ink.x = damp(ink.x, ink.tx, 6, dt);
-      ink.y = damp(ink.y, ink.ty, 6, dt);
+      ink.x = damp(ink.x, ink.tx, 4, dt);
+      ink.y = damp(ink.y, ink.ty, 4, dt);
       ink.strength = damp(ink.strength, target, target ? 6 : 4, dt);
       if (ink.strength < 0.001) ink.strength = 0;
       headlineInk.style.setProperty("--ink-x", `${ink.x.toFixed(1)}px`);

@@ -21,7 +21,7 @@
   --light: #e4e7fb;
   --cream: #fcfbf6;
   --ink: #0e0e0e;
-  --hover-yellow: #c2b47c;
+  --hover-tint: #9c90bd;
   --line: rgba(14, 14, 14, 0.18);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
@@ -309,8 +309,8 @@ h3 {
   background: radial-gradient(
     ellipse clamp(100px, 10vw, 180px) clamp(75px, 7vw, 125px)
       at var(--ink-x, -500px) var(--ink-y, -500px),
-    var(--hover-yellow) 0%,
-    var(--hover-yellow) 8%,
+    var(--hover-tint) 0%,
+    var(--hover-tint) 8%,
     transparent 100%
   );
   -webkit-background-clip: text;
