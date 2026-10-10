@@ -997,6 +997,10 @@ dialog.is-open .menu-panel {
 dialog.is-open .menu-panel::before {
   transform: scaleX(0);
 }
+dialog.is-closing .menu-panel::before {
+  visibility: hidden;
+  transition: none;
+}
 .menu-close {
   position: fixed;
   z-index: 5;

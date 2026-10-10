@@ -38,6 +38,7 @@
   let menuPhase = "closed";
   let openingFrame = 0;
   let closeTimer = 0;
+  let menuCurveAnimation = null;
   let menuDestination = null;
   let lockedY = 0;
   let modalOpener = null;
@@ -292,7 +293,9 @@
     cancelAnimationFrame(openingFrame);
     openingFrame = 0;
     menuPhase = "closed";
-    menu.classList.remove("is-open");
+    menuCurveAnimation?.cancel();
+    menuCurveAnimation = null;
+    menu.classList.remove("is-open", "is-closing");
     if (menu.open) menu.close();
     menuButton.setAttribute("aria-expanded", "false");
     unlockPage();
@@ -309,9 +312,30 @@
     openingFrame = 0;
     menuDestination = typeof destination === "string" ? destination : null;
     menuPhase = "closing";
+    menu.classList.add("is-closing");
     menu.classList.remove("is-open");
     if (!motion || !entered) finishMenu();
-    else closeTimer = setTimeout(finishMenu, 750);
+    else {
+      menuCurveAnimation = animateMenuExit(menuPanel);
+      closeTimer = setTimeout(finishMenu, 750);
+    }
+  }
+  function animateMenuExit(surface) {
+    const bend = Math.min(innerWidth * 0.14, 140) / surface.getBoundingClientRect().width * 100;
+    const outline = (inset) => {
+      const points = ["0% 0%", "100% 0%", "100% 100%", "0% 100%"];
+      for (let i = 1; i <= 48; i++) {
+        const y = 1 - i / 48;
+        const x = inset * Math.sqrt(Math.max(0, 1 - (2 * y - 1) ** 2));
+        points.push(`${x.toFixed(3)}% ${(y * 100).toFixed(3)}%`);
+      }
+      return `polygon(${points.join(",")})`;
+    };
+    return surface.animate([
+      { clipPath: outline(0), offset: 0 },
+      { clipPath: outline(bend), offset: 0.42 },
+      { clipPath: outline(bend * 0.55), offset: 1 },
+    ], { duration: 650, easing: "cubic-bezier(0.7, 0, 0.2, 1)", fill: "both" });
   }
   menuButton.addEventListener("click", () => {
     if (menuPhase !== "closed" || imageView.open) return;

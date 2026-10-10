@@ -28,10 +28,38 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=hero-hover-4" />
-    <script src="./app.js?v=hero-hover-4" defer></script>
+    <script>
+      (() => {
+        try {
+          const type = performance.getEntriesByType("navigation")[0]?.type;
+          const base = new URL("./", location.href);
+          const fromPortfolio = document.referrer && new URL(document.referrer).origin === location.origin && new URL(document.referrer).pathname.startsWith(base.pathname);
+          const seen = sessionStorage.getItem("mads-arrival-seen") === "true";
+          const paused = sessionStorage.getItem("mads-motion-paused") === "true";
+          const atSection = location.hash && location.hash !== "#top";
+          if (!matchMedia("(prefers-reduced-motion: reduce)").matches && !paused && !atSection && type !== "back_forward" && (type === "reload" || (!seen && !fromPortfolio)))
+            document.documentElement.classList.add("intro-pending");
+        } catch { /* Keep the page immediately readable when storage is unavailable. */ }
+      })();
+    </script>
+    <link rel="stylesheet" href="./arrival.css?v=arrival-1" />
+    <script src="./arrival.js?v=arrival-1" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=motion-arrival-1" />
+    <script src="./app.js?v=motion-arrival-1" defer></script>
   </head>
   <body>
+    <div class="arrival" aria-hidden="true" inert>
+      <div class="arrival-blue"></div>
+      <div class="arrival-center">
+        <canvas width="360" height="180"></canvas>
+        <div class="arrival-copy">
+          <span>It starts<br />with an idea.</span>
+          <span>Made to<br />feel simple.</span>
+          <span class="arrival-name">mads leão</span>
+        </div>
+      </div>
+      <span class="arrival-credit">MADALENA LEÃO · PRODUCT DESIGN</span>
+    </div>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="header">
       <a class="wordmark" href="#top" aria-label="Madalena Leão, home"

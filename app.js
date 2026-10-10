@@ -59,6 +59,7 @@
   let posterVisible = false;
   let previewActive = false;
   let menuTimer = 0;
+  let menuCurveAnimation = null;
   let menuPhase = "closed";
   let menuOpeningFrame = 0;
   let menuScrollY = 0;
@@ -465,7 +466,9 @@
     cancelAnimationFrame(menuOpeningFrame);
     menuOpeningFrame = 0;
     menuPhase = "closed";
-    dialog.classList.remove("is-open");
+    menuCurveAnimation?.cancel();
+    menuCurveAnimation = null;
+    dialog.classList.remove("is-open", "is-closing");
     if (dialog.open) dialog.close();
     document.body.classList.remove("menu-is-open");
     root.style.removeProperty("--menu-scroll-top");
@@ -508,9 +511,31 @@
     menuOpeningFrame = 0;
     menuDestination = typeof destination === "string" ? destination : null;
     menuPhase = "closing";
+    dialog.classList.add("is-closing");
     dialog.classList.remove("is-open");
     if (!motion || !hasOpened) finishClose();
-    else menuTimer = setTimeout(finishClose, 750);
+    else {
+      menuCurveAnimation = animateMenuExit(panel);
+      menuTimer = setTimeout(finishClose, 750);
+    }
+  }
+  function animateMenuExit(surface) {
+    const bend = Math.min(innerWidth * 0.14, 140) / surface.getBoundingClientRect().width * 100;
+    const outline = (inset) => {
+      const points = ["0% 0%", "100% 0%", "100% 100%", "0% 100%"];
+      for (let i = 1; i <= 48; i++) {
+        const y = 1 - i / 48;
+        const x = inset * Math.sqrt(Math.max(0, 1 - (2 * y - 1) ** 2));
+        points.push(`${x.toFixed(3)}% ${(y * 100).toFixed(3)}%`);
+      }
+      return `polygon(${points.join(",")})`;
+    };
+    // The middle recedes into the panel; the corners trail the inward curve.
+    return surface.animate([
+      { clipPath: outline(0), offset: 0 },
+      { clipPath: outline(bend), offset: 0.42 },
+      { clipPath: outline(bend * 0.55), offset: 1 },
+    ], { duration: 650, easing: "cubic-bezier(0.7, 0, 0.2, 1)", fill: "both" });
   }
   menuButton.addEventListener("click", () => {
     if (menuPhase !== "closed") return;
