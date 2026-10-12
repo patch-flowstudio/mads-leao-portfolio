@@ -49,6 +49,9 @@
 }
 .case-title .line-mask {
   overflow: hidden;
+  /* Leave room for glyph overhangs while retaining the masked entrance. */
+  padding: 0.1em 0.1em;
+  margin: -0.1em -0.1em;
 }
 .case-title .hero-line {
   display: block;
