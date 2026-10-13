@@ -1,0 +1,90 @@
+/* Content-handoff additions, scoped to the WPP Open page. */
+.case-facts {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.fact-team {
+  grid-column: span 3;
+}
+.fact-research {
+  grid-column: span 2;
+}
+.research-details h3 {
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.research-details h3:not(:first-child) {
+  margin-top: 32px;
+}
+.research-details p,
+.decision-copy > p,
+.status-introduction > p + p {
+  margin-top: 18px;
+}
+.research-details p,
+.status-introduction > p:not(.lead) {
+  font-size: 15px;
+  line-height: 1.85;
+  max-width: 620px;
+}
+.research-synthesis {
+  margin: 75px 0 55px;
+}
+.research-synthesis .research-quote {
+  margin: 0;
+}
+.synthesis-attribution {
+  font-size: 12px;
+  color: var(--blue);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+.comparison-controls {
+  flex-wrap: wrap;
+}
+.comparison-controls > div {
+  max-width: 100%;
+}
+.comparison-controls button {
+  padding: 8px 14px;
+}
+.comparison-note {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 650px;
+}
+.design-panel figcaption {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.design-panel figcaption > span {
+  white-space: normal;
+}
+.design-panel figcaption .card-scope-note {
+  color: var(--blue);
+}
+@media (max-width: 760px) {
+  .case-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .fact-team {
+    grid-column: auto;
+  }
+  .research-details p,
+  .status-introduction > p:not(.lead) {
+    font-size: 14px;
+  }
+  .research-synthesis {
+    margin: 40px 0;
+  }
+  .comparison-controls > div {
+    width: 100%;
+  }
+  .comparison-controls button {
+    flex: 1;
+    min-width: 0;
+    font-size: 11px;
+    padding-inline: 10px;
+  }
+}

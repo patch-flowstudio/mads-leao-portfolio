@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="../styles.css?v=motion-arrival-1" />
     <link rel="stylesheet" href="../case.css?v=title-masks-1" />
     <link rel="stylesheet" href="../projects.css?v=portfolio-2" />
+    <link rel="stylesheet" href="./wpp.css?v=content-brief-1" />
     <script src="../case.js?v=motion-arrival-1" defer></script>
   </head>
   <body class="case-page">
@@ -79,8 +80,10 @@
           <h2>A homepage that<br /><span>moves work forward.</span></h2>
           <div>
             <p>
-              I helped rethink how people resume work, discover relevant AI
-              capabilities and see what needs their attention across WPP Open.
+              I helped redesign the WPP Open homepage, translating research findings
+              into a new composer, contextual cards and navigation. The redesign is
+              now in development, with a focus on helping people resume work,
+              discover relevant AI capabilities and understand where to begin.
             </p>
             <a class="text-link" href="#context"
               >Explore the thinking<svg
@@ -99,15 +102,15 @@
               src="./assets/homepage-proposed.webp"
               width="2048"
               height="1290"
-              alt="Proposed WPP Open homepage with a Chat and Canvas composer, contextual work cards and a compact sidebar"
+              alt="WPP Open homepage redesign in development, with a Chat and Canvas composer, contextual cards and sidebar navigation"
               fetchpriority="high"
             />
           </div>
           <button
             class="image-open"
             data-image="./assets/homepage-proposed.webp"
-            data-title="WPP Open — proposed homepage"
-            aria-label="Enlarge the proposed homepage"
+            data-title="WPP Open — homepage redesign in development"
+            aria-label="Enlarge the homepage redesign in development"
             hidden
           >
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -115,7 +118,7 @@
             </svg>
           </button>
           <figcaption>
-            <span>THE PROPOSED EXPERIENCE</span
+            <span>THE REDESIGN · IN DEVELOPMENT</span
             ><span>START · RESUME · NAVIGATE</span>
           </figcaption>
         </figure>
@@ -129,6 +132,10 @@
             <dd>Ongoing</dd>
           </div>
           <div>
+            <dt>STATUS</dt>
+            <dd>In development</dd>
+          </div>
+          <div>
             <dt>TOOLS</dt>
             <dd>Figma</dd>
           </div>
@@ -136,9 +143,13 @@
             <dt>SECTOR</dt>
             <dd>Enterprise AI</dd>
           </div>
-          <div>
+          <div class="fact-team">
             <dt>THE TEAM</dt>
             <dd>2 PD · 4 FE · 4 BE · 1 PM · 2 QA</dd>
+          </div>
+          <div class="fact-research">
+            <dt>RESEARCH COLLABORATION</dt>
+            <dd>UX researcher</dd>
           </div>
         </dl>
       </section>
@@ -149,7 +160,7 @@
           <a href="#context"><span>01</span> Context</a
           ><a href="#research"><span>02</span> Research</a
           ><a href="#design"><span>03</span> Design</a
-          ><a href="#outcome"><span>04</span> Outcome</a>
+          ><a href="#outcome"><span>04</span> Status</a>
         </div>
         <span class="reading-progress" aria-hidden="true"></span>
       </nav>
@@ -245,17 +256,46 @@
                   <p>Questionnaire<br />responses</p>
                 </div>
               </div>
-              <p>
-                People wanted to return to meaningful work, understand the
-                client or project around it, and discover AI capabilities they
-                could actually use. Some also mistook the Chat input for search.
-              </p>
+              <div class="research-details">
+                <h3>Research collaboration</h3>
+                <p>
+                  I worked with a UX researcher to prepare the interview questions
+                  and supporting materials. She conducted the eight qualitative
+                  interviews, and we discussed the findings together. I then
+                  translated the research into design changes, refining the card
+                  concepts and the wider homepage experience.
+                </p>
+                <h3>What informed the redesign</h3>
+                <p>
+                  The research favoured cards that helped people progress, manage
+                  or resume work. To Do, Project Overview, Continue Where You Left
+                  Off and Recommended Agents emerged as stronger concepts than
+                  broader informational content.
+                </p>
+                <p>
+                  The July research summary reported that 67% of respondents rated
+                  To Do as very or extremely important. Participants also
+                  questioned whether Urgent Tasks needed to be separate from To
+                  Do, highlighting an opportunity to reduce duplication.
+                </p>
+                <p>
+                  Getting started was another challenge: 40% of survey respondents
+                  were unfamiliar with Canvas. Together with findings that some
+                  users mistook the Chat input for search, this pointed to a need
+                  for clearer guidance on what each mode could do.
+                </p>
+              </div>
             </div>
           </div>
-          <blockquote class="research-quote" data-reveal>
-            “Users are not looking for what work to do next; they are looking
-            for help <span>moving work forward.</span>”
-          </blockquote>
+          <div class="research-synthesis" data-reveal>
+            <p class="research-quote">
+              The homepage should help people move existing work forward, as well
+              as <span>find where to begin.</span>
+            </p>
+            <p class="synthesis-attribution">
+              Research synthesis developed jointly by the UX researcher and me.
+            </p>
+          </div>
           <div class="research-signals">
             <div data-reveal>
               <span>01</span>
@@ -300,12 +340,26 @@
           </div>
           <div class="prose" data-reveal>
             <p>
-              I explored 12 contextual card concepts, combining ideas that
-              overlapped and prioritising the clearest user needs.
+              I explored 12 contextual card concepts and refined them using
+              research feedback. Together with the team, I weighed their relevance
+              to users, overlap with other concepts and implementation complexity.
             </p>
             <p>
-              The work also reached beyond the cards: how people begin a task,
-              what the homepage surfaces and how they move through the platform.
+              Continue Working, To Do and Recommended Agents were selected to move
+              forward based on the research, team priorities and available
+              development capacity. The selection balanced user value with what
+              we could realistically deliver.
+            </p>
+            <p>
+              Some concepts were left outside the initial scope because their
+              complexity exceeded the development capacity available. Others were
+              combined to avoid duplication, including bringing urgency into the
+              task experience rather than treating it as a standalone card.
+            </p>
+            <p>
+              These decisions shaped the cards alongside two connected areas of
+              the redesign: how people begin a task and how they navigate the
+              platform.
             </p>
           </div>
         </div>
@@ -376,10 +430,16 @@
               <span>FOLLOW THE CHANGE</span>
               <div role="group" aria-label="Interface version">
                 <button data-version="before" aria-pressed="false">
-                  Before</button
-                ><button data-version="after" aria-pressed="true">After</button>
+                  Previous experience</button
+                ><button data-version="after" aria-pressed="true">In development</button>
               </div>
             </div>
+            <p class="comparison-note">
+              These comparisons show the previous experience and the redesign
+              currently in development. The descriptions explain the design
+              intent; improvements in usability and behaviour have not yet been
+              validated.
+            </p>
 
             <div
               class="design-panel"
@@ -394,7 +454,7 @@
                     src="./assets/homepage-original.webp"
                     width="2048"
                     height="1457"
-                    alt="Before: a single-line Chat field on the original homepage"
+                    alt="Previous experience: single-line Chat field on the WPP Open homepage"
                     loading="lazy"
                     decoding="async"
                   />
@@ -402,8 +462,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/homepage-original.webp"
-                  data-title="Starting point — before"
-                  aria-label="Enlarge the starting point before"
+                  data-title="Starting point — previous experience"
+                  aria-label="Enlarge the previous starting point"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -411,7 +471,7 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>BEFORE</span>
+                  <span>PREVIOUS EXPERIENCE</span>
                   <p>
                     The single-line field could read as search. Chat and Canvas
                     offered little guidance on how to begin.
@@ -424,7 +484,7 @@
                     src="./assets/composer-proposed.webp"
                     width="2048"
                     height="1116"
-                    alt="After: a recognisable composer with explicit Chat and Canvas choices, suggested prompts and agent discovery"
+                    alt="Composer redesign in development with Chat and Canvas choices, suggested prompts and agent discovery"
                     loading="lazy"
                     decoding="async"
                   />
@@ -432,8 +492,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/composer-proposed.webp"
-                  data-title="Starting point — after"
-                  aria-label="Enlarge the starting point after"
+                  data-title="Starting point — redesign in development"
+                  aria-label="Enlarge the starting point redesign"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -441,11 +501,12 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>AFTER</span>
+                  <span>REDESIGN · IN DEVELOPMENT</span>
                   <p>
-                    A recognisable composer makes Chat and Canvas explicit.
-                    Prompts and visible controls help people understand what
-                    they can do.
+                    The redesigned composer makes Chat and Canvas explicit, with
+                    suggested prompts and a route to agent discovery. These
+                    elements are intended to help people recognise what they can
+                    do and choose how to begin.
                   </p>
                 </figcaption>
               </figure>
@@ -453,10 +514,11 @@
                 <span>01 / THE STARTING POINT</span>
                 <h3>Make the first move clearer.</h3>
                 <p>
-                  The input should explain its possibilities before someone
-                  starts typing. The proposed composer brings the mode choice,
-                  suggested prompts and a route to the right agent into one
-                  starting point.
+                  The research showed that visibility alone was not enough: some
+                  users were unfamiliar with Canvas, while others did not see a
+                  clear reason to use it. I brought mode selection, suggested
+                  prompts and agent discovery into the starting point to offer
+                  more guidance before users begin a task.
                 </p>
               </div>
             </div>
@@ -474,7 +536,7 @@
                     src="./assets/cards-detail-original.webp"
                     width="2048"
                     height="631"
-                    alt="Before: homepage cards for Shortcuts, Help and support, and WPP Media announcements"
+                    alt="Previous experience: shortcuts, support and announcement cards"
                     loading="lazy"
                     decoding="async"
                   />
@@ -482,8 +544,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/cards-detail-original.webp"
-                  data-title="Homepage cards — before"
-                  aria-label="Enlarge the cards before"
+                  data-title="Homepage cards — previous experience"
+                  aria-label="Enlarge the previous cards"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -491,7 +553,7 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>BEFORE</span>
+                  <span>PREVIOUS EXPERIENCE</span>
                   <p>
                     Shortcuts, support and announcements provided destinations,
                     but little help with current work.
@@ -504,7 +566,7 @@
                     src="./assets/cards-proposed.webp"
                     width="2048"
                     height="1337"
-                    alt="After: contextual card concepts including Continue working, Recommended agents, My tasks and To do"
+                    alt="Card exploration showing Continue working, Recommended agents, My tasks, To do, Training and Media performance"
                     loading="lazy"
                     decoding="async"
                   />
@@ -512,8 +574,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/cards-proposed.webp"
-                  data-title="Homepage cards — after"
-                  aria-label="Enlarge the cards after"
+                  data-title="Homepage cards — redesign in development"
+                  aria-label="Enlarge the cards redesign"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -521,11 +583,18 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>AFTER</span>
+                  <span>REDESIGN · IN DEVELOPMENT</span>
                   <p>
-                    Continue Working, To Do and Recommended Agents emerged as
-                    the strongest directions for continuity, attention and
-                    discovery.
+                    Continue Working, To Do and Recommended Agents bring ongoing
+                    work, tasks and relevant capabilities into the homepage. These
+                    cards were selected through research feedback, team
+                    prioritisation and development feasibility.
+                  </p>
+                  <p class="card-scope-note">
+                    The image shows a broader card exploration. Continue Working,
+                    To Do and Recommended Agents were selected to move forward;
+                    not every concept shown is a confirmed implementation
+                    commitment.
                   </p>
                 </figcaption>
               </figure>
@@ -533,10 +602,16 @@
                 <span>02 / CONTEXTUAL CARDS</span>
                 <h3>Give every card a job.</h3>
                 <p>
-                  Overlapping ideas were combined: urgent tasks became part of
-                  To Do, suggested next steps became contextual actions, and
-                  training and onboarding became one learning concept. The focus
-                  moved toward the value each card provides.
+                  Participant feedback questioned whether Urgent Tasks needed to
+                  be separate from To Do. I used this finding to bring urgency
+                  into the task experience rather than introduce a standalone
+                  Urgent Tasks card.
+                </p>
+                <p>
+                  The research also showed that relevance varied by role. Media
+                  Performance, for example, mattered strongly to media
+                  practitioners but less to other participants. This highlighted
+                  the limits of treating every card as equally useful to everyone.
                 </p>
               </div>
             </div>
@@ -554,7 +629,7 @@
                     src="./assets/homepage-original.webp"
                     width="2048"
                     height="1457"
-                    alt="Before: platform destinations and individual tools spread across a horizontal navigation bar"
+                    alt="Previous experience: destinations and tools in the top navigation"
                     loading="lazy"
                     decoding="async"
                   />
@@ -562,8 +637,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/homepage-original.webp"
-                  data-title="Navigation — before"
-                  aria-label="Enlarge the navigation before"
+                  data-title="Navigation — previous experience"
+                  aria-label="Enlarge the previous navigation"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -571,7 +646,7 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>BEFORE</span>
+                  <span>PREVIOUS EXPERIENCE</span>
                   <p>
                     Platform destinations and tools sat across the top bar, with
                     limited grouping around the work.
@@ -584,7 +659,7 @@
                     src="./assets/navigation-proposed.webp"
                     width="2048"
                     height="1421"
-                    alt="After: a collapsible contextual sidebar grouping tools, Work and Library, with workspace selectors above"
+                    alt="Navigation redesign in development with a collapsible contextual sidebar"
                     loading="lazy"
                     decoding="async"
                   />
@@ -592,8 +667,8 @@
                 <button
                   class="image-open"
                   data-image="./assets/navigation-proposed.webp"
-                  data-title="Navigation — after"
-                  aria-label="Enlarge the navigation after"
+                  data-title="Navigation — redesign in development"
+                  aria-label="Enlarge the navigation redesign"
                   hidden
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -601,10 +676,12 @@
                   </svg>
                 </button>
                 <figcaption>
-                  <span>AFTER</span>
+                  <span>REDESIGN · IN DEVELOPMENT</span>
                   <p>
-                    A contextual sidebar groups tools, work and resources, with
-                    the workspace in view and the option to collapse it.
+                    A collapsible sidebar groups tools, work and resources while
+                    keeping the workspace context visible. The structure is
+                    intended to make destinations and their relationships easier
+                    to understand.
                   </p>
                 </figcaption>
               </figure>
@@ -612,10 +689,11 @@
                 <span>03 / NAVIGATION</span>
                 <h3>Organise around the work.</h3>
                 <p>
-                  Agents, Apps, Chats and Canvases sit together. Work groups
-                  Briefs, Projects and Work Management; Library brings together
-                  Brand Intelligence, Content Discovery and Files. The hierarchy
-                  makes their relationships easier to understand.
+                  The redesigned hierarchy brings Agents, Apps, Chats and Canvases
+                  together, while grouping work-related destinations and shared
+                  resources into dedicated sections. The aim is to support
+                  navigation within the workspace and provide a structure that
+                  can accommodate additional capabilities.
                 </p>
               </div>
             </div>
@@ -630,46 +708,62 @@
       >
         <div class="chapter-heading" data-reveal>
           <span class="chapter-number">04</span>
-          <p>OUTCOME + NEXT STEPS</p>
+          <p>DELIVERY STATUS + NEXT STEPS</p>
           <h2 id="outcome-title">
-            A clearer direction.<br /><span>More to learn.</span>
+            In development.<br /><span>Validation ahead.</span>
           </h2>
         </div>
         <div class="outcome-body">
-          <p class="lead" data-reveal>
-            The work connected the composer, contextual cards and navigation
-            around one shared purpose: helping people start, resume and find
-            their way through work.
-          </p>
+          <div class="status-introduction" data-reveal>
+            <p class="lead">
+              The redesign is now in development. My contribution connected
+              research findings with decisions across the composer, contextual
+              cards and navigation, while working with the team to keep the
+              initial scope achievable.
+            </p>
+            <p>
+              The work has established a design direction and implementation
+              scope. Its impact on usability and day-to-day work remains to be
+              validated.
+            </p>
+          </div>
           <div class="outcome-list">
             <div data-reveal>
               <span>01</span>
-              <h3>Clearer entry points</h3>
-              <p>Explicit modes, prompts and a route to agent discovery.</p>
+              <h3>Research translated into design</h3>
+              <p>
+                Interview and questionnaire findings informed the card selection
+                and the guidance offered at the starting point.
+              </p>
             </div>
             <div data-reveal>
               <span>02</span>
-              <h3>More purposeful content</h3>
+              <h3>A focused implementation scope</h3>
               <p>
-                Cards shaped around ongoing work, tasks and relevant
-                capabilities.
+                The team balanced user value with development capacity, combining
+                overlapping concepts and leaving more complex ideas outside the
+                initial scope.
               </p>
             </div>
             <div data-reveal>
               <span>03</span>
-              <h3>A contextual structure</h3>
-              <p>Tools, work and resources organised within the workspace.</p>
+              <h3>Connected entry points and navigation</h3>
+              <p>
+                The composer, cards and sidebar were designed around starting
+                tasks, returning to work and finding relevant capabilities.
+              </p>
             </div>
           </div>
           <aside class="next-steps" data-reveal>
             <span class="status-dot" aria-hidden="true"></span>
             <div>
-              <p class="small-label">ONGOING PROJECT · VALIDATION NEXT</p>
+              <p class="small-label">IN DEVELOPMENT · USABILITY VALIDATION NEXT</p>
               <h3>Does it help people move forward?</h3>
               <p>
-                Next, validation will assess whether people can recognise where
-                to start, return to relevant work and find the capabilities they
-                need.
+                Usability testing should assess whether people can distinguish
+                Chat from Canvas, return to relevant work and find an appropriate
+                agent. It should also examine whether the task experience
+                communicates urgency clearly without a separate Urgent Tasks card.
               </p>
             </div>
           </aside>
