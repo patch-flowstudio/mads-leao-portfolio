@@ -21,6 +21,8 @@
   const arrow = document.querySelector(".footer-arrow");
   const preview = document.querySelector(".project-preview");
   const previewTrack = document.querySelector(".preview-track");
+  const previewCount = previewTrack.children.length;
+  root.style.setProperty("--preview-count", String(previewCount));
   const cursor = document.querySelector(".preview-cursor");
   const toggle = document.querySelector(".motion-toggle");
   const menuButton = document.querySelector(".menu-toggle");
@@ -387,7 +389,7 @@
         translate(cursor, follower.cx - 45, follower.cy - 45);
       }
       previewActive = true;
-      previewTrack.style.transform = `translateY(-${Number(project.dataset.project) * 25}%)`;
+      previewTrack.style.transform = `translateY(-${Number(project.dataset.project) * 100 / previewCount}%)`;
       preview.classList.add("is-active");
       cursor.classList.add("is-active");
       wake();
